@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Insert solution:</title>
+</head>
+<body>
+<form method ="POST" th:object="${solutionDto}">
+    <h3>Problem title:</h3>
+    <input type="text" th:field="*{title}"/>
+    </br>
+    <h3>Problem description:</h3>
+    <input type="text" th:field="*{problemDescription}"/>
+    </br>
+    <h3>Code:</h3>
+    <input type="text" th:field="*{code}"/>
+    </br>
+    <h3>Problem title:</h3>
+    <input type="text" th:field="*{solutionDescription}"/>
+    </br>
+    <button>Submit</button>
+</form>
+</body>
+</html>
