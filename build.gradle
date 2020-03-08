@@ -4,6 +4,9 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 }
 
+apply plugin: 'java' //needed for implementation command
+apply plugin: 'org.springframework.boot'
+
 jar {
     enabled = true;
     manifest {
