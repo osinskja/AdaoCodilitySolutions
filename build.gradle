@@ -8,15 +8,18 @@ repositories {
     mavenCentral()
 }
 
-bootJar {
-    mainClassName = 'com.adao.codility.solutions.AdaoCodilitySolutionsApplication'
-}
-
 jar {
     enabled = true;
+    manifest {
+        attributes "Main-Class": "com.adao.codility.solutions.AdaoCodilitySolutionsApplication"
+    }
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
 
 dependencies {
+    compileOnly "org.springframework.boot:spring-boot-autoconfigure-processor"
     compile("org.springframework.boot:spring-boot-gradle-plugin:2.2.5.RELEASE")
     compile project(':front')
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
