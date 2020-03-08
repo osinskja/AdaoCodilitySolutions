@@ -16,6 +16,13 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 }
 
+bootJar {
+    baseName("base-server-boot")
+}
+jar{
+    enabled =true
+}
+
 repositories {
     mavenCentral()
 }

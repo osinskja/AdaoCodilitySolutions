@@ -1,6 +1,6 @@
 package controller;
 
-//import com.adao.codility.solutions.AdaoCodilitySolutionsApplication;
+import com.adao.codility.solutions.AdaoCodilitySolutionsApplication;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -12,7 +12,7 @@ import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-//@ContextConfiguration(classes = AdaoCodilitySolutionsApplication.class)
+@ContextConfiguration(classes = AdaoCodilitySolutionsApplication.class)
 @WebMvcTest(HomeController.class)
 public class HomeControllerTest {
 

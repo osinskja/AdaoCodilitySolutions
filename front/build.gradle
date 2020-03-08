@@ -10,5 +10,6 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     implementation project(':data')
-    testCompile project(":")
+    testCompile project(':')
+    testCompile project(':').sourceSets.test.output
 }
