@@ -4,9 +4,6 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 }
 
-apply plugin: 'java' //needed for implementation command
-apply plugin: 'org.springframework.boot'
-
 jar {
     enabled = true;
     manifest {
@@ -21,7 +18,6 @@ repositories {
 }
 
 dependencies {
-    compile('org.springframework.boot:spring-boot-starter-web')
     implementation project(':front')
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
