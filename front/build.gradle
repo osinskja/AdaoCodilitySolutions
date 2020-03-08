@@ -1,4 +1,3 @@
-
 bootJar {
     mainClassName = 'com.adao.codility.solutions.AdaoCodilitySolutionsApplication'
 }
