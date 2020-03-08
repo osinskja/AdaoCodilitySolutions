@@ -3,41 +3,21 @@ plugins {
     id 'org.springframework.boot' version '2.2.2.RELEASE'
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 }
-
-jar {
-    enabled = true;
-}
-
 repositories {
     mavenCentral()
 }
 
-dependencies {
-    implementation project(':front')
-    testImplementation('org.springframework.boot:spring-boot-starter-test') {
-        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+jar {
+    enabled = true;
+    manifest {
+        attributes(
+                "Class-Path": configurations.compile.collect { it.getName() }.join(' '),
+                'Main-Class': 'com.adao.codility.solutions.AdaoCodilitySolutionsApplication')
     }
+    from configurations.compile.collect { entry -> zipTree(entry) }
 }
-
-test {
-    useJUnitPlatform()
-}
-
-subprojects { //all modules inside that one share whats inside (?)
-    group = 'com.example'
-    version = '0.0.1-SNAPSHOT'
-    sourceCompatibility = 1.13
-
-    apply plugin: 'java' //needed for implementation command
-    apply plugin: 'org.springframework.boot'
-    apply plugin: 'io.spring.dependency-management' //needed for not required versions in implementation and compile
-
-
-    repositories {
-        mavenCentral()
-    }
-
     dependencies {
+        implementation project(':front')
         testImplementation('org.springframework.boot:spring-boot-starter-test') {
             exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
         }
@@ -46,4 +26,28 @@ subprojects { //all modules inside that one share whats inside (?)
     test {
         useJUnitPlatform()
     }
-}
+
+    subprojects { //all modules inside that one share whats inside (?)
+        group = 'com.example'
+        version = '0.0.1-SNAPSHOT'
+        sourceCompatibility = 1.13
+
+        apply plugin: 'java' //needed for implementation command
+        apply plugin: 'org.springframework.boot'
+        apply plugin: 'io.spring.dependency-management' //needed for not required versions in implementation and compile
+
+
+        repositories {
+            mavenCentral()
+        }
+
+        dependencies {
+            testImplementation('org.springframework.boot:spring-boot-starter-test') {
+                exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+            }
+        }
+
+        test {
+            useJUnitPlatform()
+        }
+    }
