@@ -1,11 +1,3 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.10.RELEASE")
-    }
-}
 plugins {
     id 'java'
     id 'org.springframework.boot' version '2.2.2.RELEASE'
@@ -18,6 +10,13 @@ repositories {
 
 jar {
     enabled = true;
+    manifest {
+        attributes "Main-Class": "com.adao.codility.solutions.AdaoCodilitySolutionsApplicationn"
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
