@@ -3,6 +3,9 @@ bootJar {
     mainClassName = 'com.adao.codility.solutions.AdaoCodilitySolutionsApplication'
 }
 
+jar {
+    enabled = true
+}
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
