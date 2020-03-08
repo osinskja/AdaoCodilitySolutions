@@ -4,6 +4,10 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 }
 
+bootJar {
+    mainClassName = 'com.adao.codility.solutions.AdaoCodilitySolutionsApplication'
+}
+
 jar {
     enabled = true
 }
