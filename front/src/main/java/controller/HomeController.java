@@ -9,12 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HomeController {
 
-    @Autowired
-    JdbcTemplate jdbcTemplate;
 
     @GetMapping("/")
     public String homePage(){
-        jdbcTemplate.execute("DROP TABLE books IF EXISTS");
         return "homePage";
     }
 }
