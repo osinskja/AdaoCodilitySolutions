@@ -14,7 +14,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String homePage(){
-        jdbcTemplate.execute("DROP TABLE books IF EXISTS");
+        jdbcTemplate.execute("DROP TABLE IF EXISTS books");
         return "homePage";
     }
 }
