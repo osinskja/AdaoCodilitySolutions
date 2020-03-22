@@ -1,1 +1,1 @@
-release: ./gradlew flywayMigrate
+release: ./gradlew flywayMigrate -i
