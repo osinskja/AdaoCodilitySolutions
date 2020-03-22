@@ -1,5 +1,5 @@
 bootJar {
-    mainClassName = 'com.adao.codility.solutions.AdaoCodilitySolutionsApplication'
+    enabled = false
 }
 
 jar {
@@ -10,4 +10,5 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     implementation project(':data')
+    testImplementation project(':data')
 }
