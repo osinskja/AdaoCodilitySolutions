@@ -6,14 +6,17 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
+import java.util.List;
 
+@Transactional
 public abstract class AbstractBaseRepository<T> implements BaseRepository<T> {
 
     @PersistenceContext
     private EntityManager entityManager;
 
     @Override
-    public Iterable<T> findAll() {
+    public List<T> findAll() {
         TypedQuery<T> query = entityManager.createQuery("SELECT e FROM " + getEntityType().getSimpleName() + " e" , getEntityType());
         return query.getResultList();
     }

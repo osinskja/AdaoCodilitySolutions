@@ -1,13 +1,19 @@
 package controller;
 
+import data.Solution;
 import domain.SolutionDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import repository.template.SolutionRepository;
+
+import javax.validation.Valid;
 
 
 @Controller
@@ -16,6 +22,9 @@ public class SolutionFormController {
 
     private static Logger logger = LoggerFactory.getLogger(SolutionFormController.class);
 
+    @Autowired
+    private SolutionRepository solutionRepository;
+
     @GetMapping
     public String showSolutionForm(Model model) {
         model.addAttribute("solutionDto", new SolutionDto());
@@ -23,8 +32,18 @@ public class SolutionFormController {
     }
 
     @PostMapping
-    public String processSolutionForm(SolutionDto solutionDto) {
+    public String processSolutionForm(@Valid SolutionDto solutionDto, Errors errors) {
         logger.info("solutionDto:" + solutionDto.getCode() + solutionDto.getProblemDescription() + solutionDto.getTitle() + solutionDto.getSolutionDescription());
+        if (errors.hasErrors()) {
+            return "solutionForm";
+        }
+        Solution solution = new Solution();
+        solution.setTitle(solutionDto.getTitle());
+        solution.setProblemDescription(solutionDto.getProblemDescription());
+        solution.setCode(solutionDto.getCode());
+        solution.setSolutionDescription(solutionDto.getSolutionDescription());
+
+        solutionRepository.persistEntity(solution);
 
         return "redirect:/";
     }

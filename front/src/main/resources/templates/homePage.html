@@ -7,5 +7,12 @@
 <body>
 <h1>Tosia:</h1>
 <img th:src="@{/IMG_20180528_104141_340.jpg}"/>
+<h3>Solutions:</h3>
+<div th:each="solution : ${solutions}">
+    <span th:text="${solution.title}">Title</span><br/>
+    <span th:text="${solution.problemDescription}">Problem Description</span><br/>
+    <span th:text="${solution.code}">Code</span><br/>
+    <span th:text="${solution.solutionDescription}">Solution Description</span><br/>
+</div>
 </body>
 </html>

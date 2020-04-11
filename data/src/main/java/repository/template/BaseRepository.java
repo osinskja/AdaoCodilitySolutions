@@ -1,7 +1,9 @@
 package repository.template;
 
+import java.util.List;
+
 public interface BaseRepository<T> {
-    Iterable<T> findAll();
+    List<T> findAll();
 
     T findOne(String id);
 
