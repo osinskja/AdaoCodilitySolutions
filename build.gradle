@@ -34,7 +34,7 @@ test {
 subprojects { //all modules inside that one share whats inside (?)
     group = 'com.example'
     version = '0.0.1-SNAPSHOT'
-    sourceCompatibility = 1.13
+    sourceCompatibility = 1.14
 
     apply plugin: 'java' //needed for implementation command
     apply plugin: 'org.springframework.boot'
