@@ -8,4 +8,6 @@ public interface BaseRepository<T> {
     T findOne(String id);
 
     T persistEntity(T entity);
+
+    void deleteEntity(T entity);
 }

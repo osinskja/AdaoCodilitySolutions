@@ -7,8 +7,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import repository.template.SolutionRepository;
@@ -37,7 +39,12 @@ public class SolutionFormController {
         if (errors.hasErrors()) {
             return "solutionForm";
         }
-        Solution solution = new Solution();
+        Solution solution;
+        if(StringUtils.isEmpty(solutionDto.getId())) {
+            solution = new Solution();
+        } else {
+            solution = solutionRepository.findOne(solutionDto.getId());
+        }
         solution.setTitle(solutionDto.getTitle());
         solution.setProblemDescription(solutionDto.getProblemDescription());
         solution.setCode(solutionDto.getCode());

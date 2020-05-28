@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Adao Codility Solutions</title>
+</head>
+<body>
+<h3>Solutions:</h3>
+<div th:each="solution : ${solutions}">
+    <span th:text="${solution.title}">Title</span><br/>
+    <span th:text="${solution.problemDescription}">Problem Description</span><br/>
+    <span th:text="${solution.code}">Code</span><br/>
+    <span th:text="${solution.solutionDescription}">Solution Description</span><br/>
+    <form th:action="@{/solutionEditor/solutionDelete}" th:object="${solutionToDelete}" method="post">
+        <input type="hidden" name="id" th:value="${solution.id}">
+        <button type="submit">Delete</button>
+    </form>
+    <form th:action="@{/solutionEditor/solutionEdit}" th:object="${solutionToEdit}" method="post">
+        <input type="hidden" name="id" th:value="${solution.id}">
+        <input type="hidden" name="title" th:value="${solution.title}">
+        <input type="hidden" name="problemDescription" th:value="${solution.problemDescription}">
+        <input type="hidden" name="code" th:value="${solution.code}">
+        <input type="hidden" name="solutionDescription" th:value="${solution.solutionDescription}">
+        <button type="submit">Edit</button>
+    </form>
+</div>
+</body>
+</html>

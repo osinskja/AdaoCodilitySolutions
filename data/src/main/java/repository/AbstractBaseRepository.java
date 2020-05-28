@@ -32,5 +32,10 @@ public abstract class AbstractBaseRepository<T> implements BaseRepository<T> {
         return entity;
     }
 
+    @Override
+    public void deleteEntity(T entity) {
+        entityManager.remove(entityManager.contains(entity) ? entity : entityManager.merge(entity));
+    }
+
     protected abstract Class<T> getEntityType();
 }

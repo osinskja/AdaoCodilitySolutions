@@ -6,6 +6,7 @@
 </head>
 <body>
 <form method ="POST" th:action="@{/solutionForm}" th:object="${solutionDto}">
+    <input type="hidden" th:field="*{id}"/>
     <h3>Problem title:</h3>
     <input type="text" th:field="*{title}"/>
     <span class="validationError"

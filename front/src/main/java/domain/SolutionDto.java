@@ -5,6 +5,8 @@ import javax.validation.constraints.Size;
 
 public class SolutionDto {
 
+    private String id;
+
     @NotBlank(message="Title is required")
     @Size(max=50, message="Title is too long. Maximum 50 characters allowed.")
     private String title;
@@ -16,6 +18,10 @@ public class SolutionDto {
     private String code;
     @Size(max=600, message="Title is too long. Maximum 600 characters allowed.")
     private String solutionDescription;
+
+    public String getId() {
+        return id;
+    }
 
     public String getTitle() {
         return title;
@@ -31,6 +37,10 @@ public class SolutionDto {
 
     public String getSolutionDescription() {
         return solutionDescription;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public void setTitle(String title) {

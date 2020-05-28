@@ -40,7 +40,6 @@ subprojects { //all modules inside that one share whats inside (?)
     apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management' //needed for not required versions in implementation and compile
 
-
     repositories {
         mavenCentral()
     }
