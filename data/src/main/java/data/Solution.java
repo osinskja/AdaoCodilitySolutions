@@ -4,6 +4,7 @@ import com.sun.istack.NotNull;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "SOLUTION")
@@ -60,5 +61,18 @@ public class Solution {
 
     public void setSolutionDescription(String solutionDescription) {
         this.solutionDescription = solutionDescription;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Solution solution = (Solution) o;
+        return id.equals(solution.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

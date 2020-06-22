@@ -1,56 +1,42 @@
-import data.Solution;
+package common;
+
 import org.junit.ClassRule;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.util.TestPropertyValues;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.testcontainers.containers.PostgreSQLContainer;
-import repository.template.SolutionRepository;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ContextConfiguration(
-        initializers = {SolutionRepositoryTest.Initializer.class},
-        classes = {TestRepositoryApplication.class}
+        initializers = {AbstractRepositoryTest.Initializer.class},
+        classes = {
+                TestRepositoryApplication.class
+        }
 )
+@SpringBootTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-@DataJpaTest
-public class SolutionRepositoryTest {
+public class AbstractRepositoryTest {
 
     @ClassRule
     public static PostgreSQLContainer postgresqlContainer = new PostgreSQLContainer("postgres:9.4")
             .withDatabaseName("containerDB")
-            .withUsername("user")
+            .withUsername("user1")
             .withPassword("password");
 
     @Autowired
-    private SolutionRepository solutionRepository;
+    private JdbcTemplate jdbcTemplate;
 
-    @Test
-    void shouldBeRunningPostgresDb() {
-        assertTrue(postgresqlContainer.isRunning());
+    protected void tearDown(Class... entities) throws Exception {
+        for (Class entity : entities) {
+            jdbcTemplate.execute("DELETE FROM " + entity.getSimpleName() + ";");
+        }
     }
 
-    @Test
-    void shouldPersistSolution() {
-        Solution solution = new Solution();
-        solution.setCode("testCode");
-        solution.setSolutionDescription("test solution description");
-        solution.setProblemDescription("test problem description");
-        solution.setTitle("test title");
-
-       solutionRepository.persistEntity(solution);
-
-       assertThat(solutionRepository.findAll()).contains(solution);
-    }
-
-    static class Initializer
-            implements ApplicationContextInitializer<ConfigurableApplicationContext> {
+    static class Initializer implements ApplicationContextInitializer<ConfigurableApplicationContext> {
         @Override
         public void initialize(ConfigurableApplicationContext configurableApplicationContext) {
             postgresqlContainer.start();
@@ -61,5 +47,4 @@ public class SolutionRepositoryTest {
             ).applyTo(configurableApplicationContext.getEnvironment());
         }
     }
-
 }

@@ -1,0 +1,15 @@
+   body {
+    margin: 0;
+          background-image: url("../fog-3622519_1920.jpg");
+        }
+
+        .mainheader {
+          text-align: center;
+          font-size: 3.6em;
+          font-family: Tahoma, Geneva, sans-serif;
+
+          background-image: url("../banner-1571858_1920.jpg");
+          top: 0px;
+          border: 1px solid black;
+        }
+

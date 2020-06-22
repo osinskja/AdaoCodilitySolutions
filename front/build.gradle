@@ -10,4 +10,9 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     implementation project(':data')
+
+    testCompile project(':data').sourceSets.test.output
+    testImplementation('org.testcontainers:junit-jupiter:1.13.0')
+    testImplementation('org.testcontainers:postgresql:1.13.0')
+    testImplementation('org.hibernate:hibernate-entitymanager')
 }

@@ -2,10 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/homePageStyle.css}"/>
     <title>Adao Codility Solutions</title>
 </head>
 <body>
-<h3>Solutions:</h3>
+<div class="mainheader">
+    <h3>Codility Solutions</h3>
+</div>
 <div th:each="solution : ${solutions}">
     <span th:text="${solution.title}">Title</span><br/>
     <span th:text="${solution.problemDescription}">Problem Description</span><br/>

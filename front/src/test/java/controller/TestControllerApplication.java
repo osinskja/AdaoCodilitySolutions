@@ -8,10 +8,8 @@ import static org.mockito.Mockito.mock;
 
 @SpringBootApplication
 public class TestControllerApplication {
-
     @Bean
-    public SolutionRepository solutionRepository() {
+    public SolutionRepository mockSolutionRepository() {
         return mock(SolutionRepository.class);
     }
-
 }
