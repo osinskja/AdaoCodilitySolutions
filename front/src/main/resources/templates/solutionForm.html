@@ -5,7 +5,7 @@
     <title>Insert solution:</title>
 </head>
 <body>
-<form method ="POST" th:action="@{/solutionForm}" th:object="${solutionDto}">
+<form method ="POST" th:action="@{/solutionForm}" th:object="${solutionDto}" id="solutionFormId">
     <input type="hidden" th:field="*{id}"/>
     <h3>Problem title:</h3>
     <input type="text" th:field="*{title}"/>
@@ -14,19 +14,19 @@
           th:errors="*{title}">Title Error</span>
     <br/>
     <h3>Problem description:</h3>
-    <input type="text" th:field="*{problemDescription}"/>
+    <textarea name="problemDescriptionArea" th:field="*{problemDescription}" form="solutionFormId"></textarea>
     <span class="validationError"
           th:if="${#fields.hasErrors('problemDescription')}"
           th:errors="*{problemDescription}">Problem Description Error</span>
     <br/>
     <h3>Code:</h3>
-    <input type="text" th:field="*{code}"/>
+    <textarea name="codeArea" th:field="*{code}" form="solutionFormId"></textarea>
     <span class="validationError"
           th:if="${#fields.hasErrors('code')}"
           th:errors="*{code}">Code Error</span>
     <br/>
     <h3>Solution description:</h3>
-    <input type="text" th:field="*{solutionDescription}"/>
+    <textarea name="solutionDescriptionArea" th:field="*{solutionDescription}" form="solutionFormId"></textarea>
     <span class="validationError"
           th:if="${#fields.hasErrors('solutionDescription')}"
           th:errors="*{solutionDescription}">Solution Description Error</span>

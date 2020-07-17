@@ -1,15 +1,132 @@
-   body {
-    margin: 0;
-          background-image: url("../fog-3622519_1920.jpg");
-        }
+/* 
 
-        .mainheader {
-          text-align: center;
-          font-size: 3.6em;
-          font-family: Tahoma, Geneva, sans-serif;
+TemplateMo 551 Stand Blog
 
-          background-image: url("../banner-1571858_1920.jpg");
-          top: 0px;
-          border: 1px solid black;
-        }
+https://templatemo.com/tm-551-stand-blog
+
+*/
+
+body {
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+p {
+	margin-bottom: 0px;
+	font-size: 15px;
+	font-weight: 400;
+	color: #7a7a7a;
+	line-height: 30px;
+}
+a {
+	text-decoration: none!important;
+}
+ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	margin: 0px;
+}
+
+/* Blog Posts */
+
+.blog-posts {
+	margin-top: 100px;
+}
+
+.blog-posts .blog-post {
+	margin-bottom: 30px;
+}
+
+.blog-posts .blog-thumb img {
+	width: 100%;
+	overflow: hidden;
+}
+
+.blog-posts .down-content {
+
+	border-right: 1px solid #eee;
+	border-left: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+}
+
+.blog-posts .down-content .title-content span {
+	font-size: 24px;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	font-weight: 900;
+	color: #f48840;
+}
+
+.blog-posts .down-content .subtitle-content {
+    margin-bottom: 10px;
+}
+
+.blog-posts .down-content .subtitle-content span {
+	font-size: 16px;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	font-weight: 900;
+	color: #e6b01c;
+}
+
+.blog-posts .down-content .text-content {
+	  margin-bottom: 10px;
+}
+
+.blog-posts .down-content .text-content span {
+	white-space: pre;
+}
+
+.blog-posts .down-content h4 {
+	font-size: 24px;
+	text-transform: capitalize;
+	letter-spacing: 0.5px;
+	font-weight: 900;
+	color: #20232e;
+	margin: 10px 0px 12px 0px;
+}
+
+.blog-posts .down-content ul.post-info li {
+	display: inline-block;
+	margin-right: 8px;
+}
+
+.blog-posts .down-content ul.post-info li:after {
+	content: '|';
+	color: #aaa;
+	margin-left: 8px;
+}
+
+.blog-posts .down-content h4 {
+	font-size: 20px;
+	letter-spacing: 0.25px;
+}
+
+.blog-posts .down-content ul.post-info li:last-child::after {
+	display: none;
+}
+
+.blog-posts .down-content ul.post-info li a {
+	font-size: 14px;
+	color: #aaa;
+	font-weight: 400;
+	transition: all .3s;
+}
+
+.blog-posts .down-content ul.post-info li a:hover {
+	color: #f48840;
+}
+
+.blog-posts .down-content p {
+	margin: 25px 0px;
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+}
+
 
