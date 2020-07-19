@@ -43,6 +43,7 @@ public class SolutionFormController {
         Solution solution;
         if (StringUtils.isEmpty(solutionDto.getId())) {
             solution = new Solution();
+            solution.setDateCreated(LocalDate.now());
         } else {
             solution = solutionRepository.findOne(solutionDto.getId());
         }
@@ -50,7 +51,6 @@ public class SolutionFormController {
         solution.setProblemDescription(solutionDto.getProblemDescription());
         solution.setCode(solutionDto.getCode());
         solution.setSolutionDescription(solutionDto.getSolutionDescription());
-        solution.setDateCreated(LocalDate.now());
 
         solutionRepository.persistEntity(solution);
 
