@@ -42,9 +42,9 @@ public class SolutionEditorControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(view().name("solutionForm"))
                 .andExpect(content().string(containsString("name=\"title\" value=\"test title\"")))
-                .andExpect(content().string(containsString("name=\"problemDescription\" value=\"test problem description\"")))
-                .andExpect(content().string(containsString("name=\"code\" value=\"test code\"")))
-                .andExpect(content().string(containsString("name=\"solutionDescription\" value=\"test solution description\"")));
+                .andExpect(content().string(containsString("id=\"problemDescription\">test problem description")))
+                .andExpect(content().string(containsString("id=\"code\">test code")))
+                .andExpect(content().string(containsString("id=\"solutionDescription\">test solution description")));
     }
 
 }
