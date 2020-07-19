@@ -2,6 +2,7 @@ package domain;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
 
 public class SolutionDto {
 
@@ -18,6 +19,8 @@ public class SolutionDto {
     private String code;
     @Size(max=600, message="Title is too long. Maximum 600 characters allowed.")
     private String solutionDescription;
+
+    private LocalDate dateCreated;
 
     public String getId() {
         return id;
@@ -39,6 +42,10 @@ public class SolutionDto {
         return solutionDescription;
     }
 
+    public LocalDate getDateCreated() {
+        return dateCreated;
+    }
+
     public void setId(String id) {
         this.id = id;
     }
@@ -57,5 +64,9 @@ public class SolutionDto {
 
     public void setSolutionDescription(String solutionDescription) {
         this.solutionDescription = solutionDescription;
+    }
+
+    public void setDateCreated(LocalDate dateCreated) {
+        this.dateCreated = dateCreated;
     }
 }

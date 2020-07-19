@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import repository.template.SolutionRepository;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
 
 
 @Controller
@@ -40,7 +41,7 @@ public class SolutionFormController {
             return "solutionForm";
         }
         Solution solution;
-        if(StringUtils.isEmpty(solutionDto.getId())) {
+        if (StringUtils.isEmpty(solutionDto.getId())) {
             solution = new Solution();
         } else {
             solution = solutionRepository.findOne(solutionDto.getId());
@@ -49,6 +50,7 @@ public class SolutionFormController {
         solution.setProblemDescription(solutionDto.getProblemDescription());
         solution.setCode(solutionDto.getCode());
         solution.setSolutionDescription(solutionDto.getSolutionDescription());
+        solution.setDateCreated(LocalDate.now());
 
         solutionRepository.persistEntity(solution);
 

@@ -4,6 +4,7 @@ import com.sun.istack.NotNull;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
@@ -22,6 +23,8 @@ public class Solution {
     private String code;
 
     private String solutionDescription;
+
+    private LocalDate dateCreated;
 
     public String getId() {
         return id;
@@ -61,6 +64,14 @@ public class Solution {
 
     public void setSolutionDescription(String solutionDescription) {
         this.solutionDescription = solutionDescription;
+    }
+
+    public LocalDate getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(LocalDate dateCreated) {
+        this.dateCreated = dateCreated;
     }
 
     @Override

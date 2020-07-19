@@ -95,6 +95,10 @@ h1,h2,h3,h4,h5,h6 {
 .blog-posts .down-content ul.post-info li {
 	display: inline-block;
 	margin-right: 8px;
+	font-size: 14px;
+    color: #f48840;
+    font-weight: 400;
+    transition: all .3s;
 }
 
 .blog-posts .down-content ul.post-info li:after {
@@ -112,21 +116,6 @@ h1,h2,h3,h4,h5,h6 {
 	display: none;
 }
 
-.blog-posts .down-content ul.post-info li a {
-	font-size: 14px;
-	color: #aaa;
-	font-weight: 400;
-	transition: all .3s;
-}
 
-.blog-posts .down-content ul.post-info li a:hover {
-	color: #f48840;
-}
-
-.blog-posts .down-content p {
-	margin: 25px 0px;
-	border-top: 1px solid #eee;
-	border-bottom: 1px solid #eee;
-}
 
 
