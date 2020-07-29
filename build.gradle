@@ -45,6 +45,7 @@ subprojects { //all modules inside that one share whats inside (?)
     }
 
     dependencies {
+        compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
         testImplementation('org.springframework.boot:spring-boot-starter-test')
         testImplementation('org.junit.jupiter:junit-jupiter-api')
         testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine')

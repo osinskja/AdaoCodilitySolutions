@@ -1,18 +1,26 @@
-/* 
-
-TemplateMo 551 Stand Blog
-
-https://templatemo.com/tm-551-stand-blog
-
-*/
-
 body {
+  margin: 0;
+  padding: 0;
   font-family: 'Roboto', sans-serif;
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
+
+.top-container {
+    top: 0;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    background-color: #787468;
+    color: white;
+    font-size: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 p {
 	margin-bottom: 0px;
 	font-size: 15px;
@@ -20,9 +28,11 @@ p {
 	color: #7a7a7a;
 	line-height: 30px;
 }
+
 a {
 	text-decoration: none!important;
 }
+
 ul {
 	padding: 0;
 	margin: 0;
@@ -33,10 +43,10 @@ h1,h2,h3,h4,h5,h6 {
 	margin: 0px;
 }
 
-/* Blog Posts */
-
 .blog-posts {
-	margin-top: 100px;
+	padding-top: 5px;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
 .blog-posts .blog-post {
@@ -45,11 +55,11 @@ h1,h2,h3,h4,h5,h6 {
 
 .blog-posts .blog-thumb img {
 	width: 100%;
+	height: 600px;
 	overflow: hidden;
 }
 
 .blog-posts .down-content {
-
 	border-right: 1px solid #eee;
 	border-left: 1px solid #eee;
 	border-bottom: 1px solid #eee;

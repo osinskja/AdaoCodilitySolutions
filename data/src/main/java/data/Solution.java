@@ -1,6 +1,5 @@
 package data;
 
-import com.sun.istack.NotNull;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -25,6 +24,9 @@ public class Solution {
     private String solutionDescription;
 
     private LocalDate dateCreated;
+
+    @Lob
+    private Byte[] image;
 
     public String getId() {
         return id;
@@ -72,6 +74,14 @@ public class Solution {
 
     public void setDateCreated(LocalDate dateCreated) {
         this.dateCreated = dateCreated;
+    }
+
+    public Byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(Byte[] image) {
+        this.image = image;
     }
 
     @Override

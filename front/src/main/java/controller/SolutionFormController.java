@@ -9,13 +9,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import repository.template.SolutionRepository;
 
 import javax.validation.Valid;
+import java.io.IOException;
 import java.time.LocalDate;
 
 
@@ -35,7 +34,7 @@ public class SolutionFormController {
     }
 
     @PostMapping
-    public String processSolutionForm(@Valid SolutionDto solutionDto, Errors errors) {
+    public String processSolutionForm(@Valid SolutionDto solutionDto, @RequestParam("imagefile") MultipartFile image, Errors errors) throws IOException {
         logger.info("solutionDto:" + solutionDto.getCode() + solutionDto.getProblemDescription() + solutionDto.getTitle() + solutionDto.getSolutionDescription());
         if (errors.hasErrors()) {
             return "solutionForm";
@@ -51,9 +50,21 @@ public class SolutionFormController {
         solution.setProblemDescription(solutionDto.getProblemDescription());
         solution.setCode(solutionDto.getCode());
         solution.setSolutionDescription(solutionDto.getSolutionDescription());
+        setImage(image, solution);
 
         solutionRepository.persistEntity(solution);
 
         return "redirect:/";
+    }
+
+    private void setImage(MultipartFile image, Solution solution) throws IOException {
+        if(image.getBytes().length != 0) {
+            int i = 0;
+            Byte[] byteImage = new Byte[image.getBytes().length];
+            for (byte b : image.getBytes()) {
+                byteImage[i++] = b;
+            }
+            solution.setImage(byteImage);
+        }
     }
 }

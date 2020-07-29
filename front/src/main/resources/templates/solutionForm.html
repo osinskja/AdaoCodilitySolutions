@@ -5,7 +5,7 @@
     <title>Insert solution:</title>
 </head>
 <body>
-<form method ="POST" th:action="@{/solutionForm}" th:object="${solutionDto}" id="solutionFormId">
+<form method ="POST" th:action="@{/solutionForm}" th:object="${solutionDto}" id="solutionFormId" enctype="multipart/form-data">
     <input type="hidden" th:field="*{id}"/>
     <h3>Problem title:</h3>
     <input type="text" th:field="*{title}"/>
@@ -30,6 +30,9 @@
     <span class="validationError"
           th:if="${#fields.hasErrors('solutionDescription')}"
           th:errors="*{solutionDescription}">Solution Description Error</span>
+    <br/>
+    <h3>Solution image:</h3>
+    <input id="imagefile" name="imagefile" type="file" class="file"/>
     <br/>
     <input type="submit" value="Submit Solution"/>
 </form>

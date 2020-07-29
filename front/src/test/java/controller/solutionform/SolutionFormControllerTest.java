@@ -7,8 +7,10 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import repository.template.SolutionRepository;
 
 import java.util.List;
@@ -47,7 +49,10 @@ public class SolutionFormControllerTest extends AbstractRepositoryTest {
 
     @Test
     public void solutionFormSolutionPersistingTest() throws Exception {
-        mockMvc.perform(post("/solutionForm")
+        byte[] testImageBytes = "some image".getBytes();
+        MockMultipartFile testImage = new MockMultipartFile("imagefile", "image.jpg", "image/jpeg", testImageBytes);
+        mockMvc.perform(MockMvcRequestBuilders.multipart("/solutionForm")
+                .file(testImage)
                 .param("title", "test title")
                 .param("problemDescription", "test problem description")
                 .param("code", "test code")
@@ -60,5 +65,6 @@ public class SolutionFormControllerTest extends AbstractRepositoryTest {
         assertThat(solutions.get(0).getProblemDescription()).isEqualTo("test problem description");
         assertThat(solutions.get(0).getCode()).isEqualTo("test code");
         assertThat(solutions.get(0).getSolutionDescription()).isEqualTo("test solution description");
+        assertThat(solutions.get(0).getImage()).isEqualTo(testImageBytes);
     }
 }
