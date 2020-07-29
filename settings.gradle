@@ -1,4 +1,5 @@
 rootProject.name = 'AdaoCodilitySolutions'
 include 'front'
 include 'data'
+include 'security'
 

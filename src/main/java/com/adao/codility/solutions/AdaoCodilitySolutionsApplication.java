@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-@SpringBootApplication(scanBasePackages = {"controller", "repository"})
+@SpringBootApplication(scanBasePackages = {"controller", "repository", "config"})
 @EntityScan("data")
 public class AdaoCodilitySolutionsApplication {
 

@@ -22,6 +22,7 @@ repositories {
 
 dependencies {
     compile project(':front')
+    compile project(':security')
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
@@ -45,7 +46,8 @@ subprojects { //all modules inside that one share whats inside (?)
     }
 
     dependencies {
-        compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
+        implementation('org.apache.commons:commons-lang3:3.0')
+
         testImplementation('org.springframework.boot:spring-boot-starter-test')
         testImplementation('org.junit.jupiter:junit-jupiter-api')
         testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine')
