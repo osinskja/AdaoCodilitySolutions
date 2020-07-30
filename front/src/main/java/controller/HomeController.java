@@ -14,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Comparator;
 import java.util.List;
 
 @Controller
@@ -25,6 +26,7 @@ public class HomeController {
     @GetMapping("/")
     public String homePage(Model model) {
         List<Solution> solutionsList = solutionRepository.findAll();
+        solutionsList.sort(Comparator.comparing(Solution::getDateCreated).reversed());
         model.addAttribute("solutions", solutionsList);
         return "homePage";
     }
