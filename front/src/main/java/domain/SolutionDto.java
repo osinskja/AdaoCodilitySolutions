@@ -15,7 +15,7 @@ public class SolutionDto {
     @Size(max = 600, message = "Problem description is too long. Maximum 600 characters allowed.")
     private String problemDescription;
     @NotBlank(message = "Code is required")
-    @Size(max = 2000, message = "Code is too long. Maximum 2000 characters allowed.")
+    @Size(max = 6000, message = "Code is too long. Maximum 6000 characters allowed.")
     private String code;
     @Size(max = 600, message = "Title is too long. Maximum 600 characters allowed.")
     private String solutionDescription;

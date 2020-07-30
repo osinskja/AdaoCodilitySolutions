@@ -34,7 +34,7 @@ public class SolutionFormController {
     }
 
     @PostMapping
-    public String processSolutionForm(@Valid SolutionDto solutionDto, @RequestParam("imagefile") MultipartFile image, Errors errors) throws IOException {
+    public String processSolutionForm(@Valid SolutionDto solutionDto, Errors errors, @RequestParam("imagefile") MultipartFile image) throws IOException {
         logger.info("solutionDto:" + solutionDto.getCode() + solutionDto.getProblemDescription() + solutionDto.getTitle() + solutionDto.getSolutionDescription());
         if (errors.hasErrors()) {
             return "solutionForm";
