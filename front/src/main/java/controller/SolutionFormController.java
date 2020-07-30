@@ -16,6 +16,7 @@ import repository.template.SolutionRepository;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 
 @Controller
@@ -42,7 +43,7 @@ public class SolutionFormController {
         Solution solution;
         if (StringUtils.isEmpty(solutionDto.getId())) {
             solution = new Solution();
-            solution.setDateCreated(LocalDate.now());
+            solution.setTimeCreated(LocalDateTime.now());
         } else {
             solution = solutionRepository.findOne(solutionDto.getId());
         }

@@ -38,7 +38,7 @@
                                         </div>
                                         <ul class="post-info">
                                             <li>ADAO</li>
-                                            <li><span th:text="${solution.dateCreated}"></span></li>
+                                            <li><span th:text="${#temporals.format(solution.timeCreated, 'dd-MM-yyyy HH:mm')}"></span></li>
                                         </ul>
                                         <p>
                                         <div class="subtitle-content">

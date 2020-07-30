@@ -4,6 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
@@ -23,7 +24,7 @@ public class Solution {
 
     private String solutionDescription;
 
-    private LocalDate dateCreated;
+    private LocalDateTime timeCreated;
 
     @Lob
     private Byte[] image;
@@ -68,12 +69,12 @@ public class Solution {
         this.solutionDescription = solutionDescription;
     }
 
-    public LocalDate getDateCreated() {
-        return dateCreated;
+    public LocalDateTime getTimeCreated() {
+        return timeCreated;
     }
 
-    public void setDateCreated(LocalDate dateCreated) {
-        this.dateCreated = dateCreated;
+    public void setTimeCreated(LocalDateTime timeCreated) {
+        this.timeCreated = timeCreated;
     }
 
     public Byte[] getImage() {

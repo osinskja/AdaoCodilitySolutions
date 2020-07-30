@@ -26,7 +26,7 @@ public class HomeController {
     @GetMapping("/")
     public String homePage(Model model) {
         List<Solution> solutionsList = solutionRepository.findAll();
-        solutionsList.sort(Comparator.comparing(Solution::getDateCreated).reversed());
+        solutionsList.sort(Comparator.comparing(Solution::getTimeCreated).reversed());
         model.addAttribute("solutions", solutionsList);
         return "homePage";
     }
