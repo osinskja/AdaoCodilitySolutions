@@ -34,30 +34,30 @@
                                     </div>
                                     <div class="down-content">
                                         <div class="title-content">
-                                            <span th:text="${solution.title}"></span>
+                                            <span th:utext="${solution.title}"></span>
                                         </div>
                                         <ul class="post-info">
                                             <li>ADAO</li>
-                                            <li><span th:text="${#temporals.format(solution.timeCreated, 'dd-MM-yyyy HH:mm')}"></span></li>
+                                            <li><span th:utext="${#temporals.format(solution.timeCreated, 'dd-MM-yyyy HH:mm')}"></span></li>
                                         </ul>
                                         <p>
                                         <div class="subtitle-content">
                                             <span>Problem description:</span><br/>
                                         </div>
                                         <div class="text-content">
-                                            <span th:utext="${#strings.replace( #strings.escapeXml( solution.problemDescription ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"></span><br/>
+                                            <span th:utext="${solution.problemDescription}"></span><br/>
                                         </div>
                                         <div class="subtitle-content">
                                             <span>Code:</span><br/>
                                         </div>
                                         <div class="text-content">
-                                            <pre class="prettyprint" th:text="${solution.code}"></pre>
+                                            <pre class="prettyprint" th:utext="${solution.code}"></pre>
                                         </div>
                                         <div class="subtitle-content">
                                             <span>Solution Description:</span><br/>
                                         </div>
                                         <div class="text-content">
-                                            <span th:utext="${#strings.replace( #strings.escapeXml( solution.solutionDescription ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"></span><br/>
+                                            <span th:utext="${solution.solutionDescription}"></span><br/>
                                         </div>
                                         </p>
                                     </div>
