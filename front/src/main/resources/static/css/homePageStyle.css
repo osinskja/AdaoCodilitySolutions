@@ -87,9 +87,18 @@ h1,h2,h3,h4,h5,h6 {
 
 .blog-posts .down-content .text-content {
 	  margin-bottom: 10px;
+	  width: auto;
 }
 
-.blog-posts .down-content .text-content span {
+.blog-posts .down-content .text-content span
+{
+    word-wrap: break-word;
+	white-space: pre-line;
+    width: 100%;
+}
+
+.blog-posts .down-content .code-content span
+{
 	white-space: pre;
 }
 
