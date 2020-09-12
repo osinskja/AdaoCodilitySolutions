@@ -9,18 +9,6 @@ body {
 
 }
 
-.top-container {
-    top: 0;
-    height: 100px;
-    line-height: 100px;
-    text-align: center;
-    background-color: #787468;
-    color: white;
-    font-size: 25px;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
 p {
 	margin-bottom: 0px;
 	font-size: 15px;
@@ -41,6 +29,18 @@ ul {
 
 h1,h2,h3,h4,h5,h6 {
 	margin: 0px;
+}
+
+.navbar-nav .nav-item:hover .nav-link {
+    color: #f48840;
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #0d0d0d;
+}
+
+.navbar {
+    background-color: #d6d6d6;
 }
 
 .blog-posts {
