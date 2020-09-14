@@ -12,6 +12,7 @@ dependencies {
     implementation project(':data')
 
     testCompile project(':data').sourceSets.test.output
+    testImplementation('org.flywaydb:flyway-core')
     testImplementation('org.testcontainers:junit-jupiter:1.13.0')
     testImplementation('org.testcontainers:postgresql:1.13.0')
     testImplementation('org.hibernate:hibernate-entitymanager')
